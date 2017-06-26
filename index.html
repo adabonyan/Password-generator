@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content=" Password Generator ">
+    <meta name="author" content=" Olu Adabonyan ">
+    <title>Password Generator</title>
+
+    <link href="css/style.css" rel="stylesheet">
+
+
+
+    <style type="text/css">
+      @media only screen and (max-width: 750px) {
+        body {
+          font-size: 1em;
+          width: 100vw;
+        }
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <h1><b>Welcome to Password Generator</h1>
+        <p class="headerP">This is a free tool to generate password<br>
+        The password will consist of alphanumerics; both lower and upper case alphabets, numbers and special characters.<br>
+        Special character is optional<br>
+        Just type in the length of the password you require and choose if you want special character.
+        </p>
+      </header>
+
+      <hr>
+
+      <main>
+        <h2>Begin</h2>
+
+        <section>
+          <p>Enter length of password between 4 and 24
+            <input type="number" id="pswdlength" value=4 min="4" max="24">
+            </input>
+          </p>
+
+          <p>Do you want special Characters?
+            <select id="specialXter">
+              <option>No</option>
+              <option>Yes</option>
+            </select>
+          </p>
+
+          <p>Get new password:
+            <button id="generatePassword" type="button" onclick="generatePassword()">Click</button>
+          </p>
+
+          <p>
+            Your new password is: <br>
+            <span id="newPassword" style="font-size: 1.2em; color: red;"></span>
+          </p>
+
+          <hr>
+
+          <p>To get another password, Click:
+            <button id="generatePassword" type="button" onclick="reset()">Reset</button>
+            Now click Get new Password
+          </p>
+        </section>
+
+      </main>
+
+      <footer>
+        <p>&copy; 2017 Thanks for visiting!<span id="crp-stats"></span></p>
+      </footer>
+
+    </div>
+
+    <script type="text/javascript" src="js/main.js"></script>
+
+    <script>
+      function reset() {
+        location.reload(false);
+      }
+
+    </script>
+
+    <script async>
+      (function(w,g){w['GoogleAnalyticsObject']=g;
+      w[g]=w[g]||function(){(w[g].q=w[g].q||[]).push(arguments)};w[g].l=1*new Date();})(window,'ga');
+
+      // Optional TODO: replace with your Google Analytics profile ID.
+      ga('create', 'UA-100366417-2');
+      ga('send', 'pageview');
+    </script>
+
+    <script async>
+      function logCRP() {
+        var t = window.performance.timing,
+          dcl = t.domContentLoadedEventStart - t.domLoading,
+          complete = t.domComplete - t.domLoading;
+        var stats = document.getElementById("crp-stats");
+        stats.textContent = 'DCL: ' + dcl + 'ms, onload: ' + complete + 'ms';
+      }
+
+      window.addEventListener("load", function(event) {
+        logCRP();
+      });
+    </script>
+
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+
+  </body>
+
+</html>

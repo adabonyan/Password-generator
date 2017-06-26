@@ -1,0 +1,55 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+body {
+  overflow-y: scroll;
+  font-family: Serif, Sans-serif;
+  width: 60vw;
+  margin: auto;
+  line-height: 1.5;
+}
+
+.container {
+  background-color: bisque;
+}
+
+.headerP {
+  font-size: 1em;
+}
+
+span {
+  font-size: 0.8em;
+  color: red;
+}
+
+button {
+  background-color: bisque; /*#e4d091 */
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+button:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
+footer {
+  padding: 0 0.5em;
+  border-top: 2px solid #ccc;
+}
+
+#crp-stats {
+  float: right;
+  font-style: italic;
+}
