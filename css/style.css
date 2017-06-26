@@ -17,8 +17,12 @@ body {
   background-color: bisque;
 }
 
+h1, h2 {text-align: center;}
+
+p, input {font-size: 1.1em}
+
 .headerP {
-  font-size: 1em;
+  font-size: 1.1em;
 }
 
 span {

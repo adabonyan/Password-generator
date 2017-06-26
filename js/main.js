@@ -176,9 +176,8 @@ function generatePassword(pswdlength, specialXter) {
   document.getElementById("newPassword").innerHTML = mypswd_str;
   document.getElementById("generatePassword").disabled = true;
 }
-/*
+
 window.performance.mark("mark_end_generatePassword");
 window.performance.measure("measure_generatePassword", "mark_start_generatePassword", "mark_end_generatePassword");
 var timeToGenerate = window.performance.getEntriesByName("measure_generatePassword");
 console.log("Time to generate password: " + timeToGenerate[timeToGenerate.length-1].duration + "ms");
-*/
