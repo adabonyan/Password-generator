@@ -9,14 +9,16 @@
 
     <link href="css/style.css" rel="stylesheet">
 
-
-
     <style type="text/css">
       @media only screen and (max-width: 750px) {
         body {
+          background-color: bisque;
           font-size: 1em;
           width: 100vw;
         }
+
+        h1 {font-size: 18px;}
+        h2 {font-size: 16px;}
       }
 
     </style>
@@ -26,10 +28,9 @@
   <body>
     <div class="container">
       <header>
-        <h1><b>Welcome to Password Generator</h1>
+        <h1>Welcome to Password Generator</h1>
         <p class="headerP">This is a free tool to generate password<br>
-        The password will consist of alphanumerics; both lower and upper case alphabets, numbers and special characters.<br>
-        Special character is optional<br>
+        The password will consist of alphanumerics; both lower and upper case alphabets, numbers and special characters. Special character is optional. Password minimum length is 4.<br>
         Just type in the length of the password you require and choose if you want special character.
         </p>
       </header>
@@ -40,8 +41,8 @@
         <h2>Begin</h2>
 
         <section>
-          <p>Enter length of password between 4 and 24
-            <input type="number" id="pswdlength" value=4 min="4" max="24">
+          <p>Enter password length
+            <input type="number" id="pswdlength" value=4 min="4" max="32">
             </input>
           </p>
 
@@ -64,15 +65,16 @@
           <hr>
 
           <p>To get another password, Click:
-            <button id="generatePassword" type="button" onclick="reset()">Reset</button>
-            Now click Get new Password
+            <button id="resetPage" type="button" onclick="reset()" disabled>Reset</button>
+            <br>
+            Now click Get new Password above.
           </p>
         </section>
 
       </main>
 
       <footer>
-        <p>&copy; 2017 Thanks for visiting!<span id="crp-stats"></span></p>
+        <p>&copy; 2017 Thanks for visiting!<span id="perfReport"></span></p>
       </footer>
 
     </div>
@@ -100,8 +102,8 @@
         var t = window.performance.timing,
           dcl = t.domContentLoadedEventStart - t.domLoading,
           complete = t.domComplete - t.domLoading;
-        var stats = document.getElementById("crp-stats");
-        stats.textContent = 'DCL: ' + dcl + 'ms, onload: ' + complete + 'ms';
+          var stats = document.getElementById("perfReport");
+          stats.textContent = 'DCL: ' + dcl + 'ms, onload: ' + complete + 'ms';
       }
 
       window.addEventListener("load", function(event) {

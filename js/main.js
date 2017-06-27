@@ -4,7 +4,7 @@
 var uppercaseLetters = [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' ];
 var lowercaseLetters = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' ];
 var number = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
-var specialXter = [ '~', '!', '@', '#', '$', '%', '&', '^', '*', '(', ')', '_', '+'];
+var specialXter = [ '~', '!', '@', '#', '$', '%', '&', '^', '*', '(', ')', '_', '+', '-'];
 
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;  //returns a random number between min and max (both included):
@@ -117,7 +117,7 @@ function generateSpecialXters(){
   getNumber = "";
   specialXterInput = [];
   for (i = 0; i < specialXter_length; i++) {
-    getNumber = getRndInteger(0, 12);
+    getNumber = getRndInteger(0, 13);
     getSpecialXter = specialXter[getNumber];
     specialXterInput.push(getSpecialXter);
   }
@@ -128,8 +128,7 @@ function generateSpecialXters(){
 }
 
 function generatePassword(pswdlength, specialXter) {
-  window.performance.mark("mark_start_generatePassword");   // User Timing API
-  startTime = window.performance.now();
+  window.performance.mark("mark_start_generatePassword"); // User Timing API
 
   document.getElementById("newPassword").innerHTML = "";
   pswdlength = document.getElementById("pswdlength").value;
@@ -173,18 +172,20 @@ function generatePassword(pswdlength, specialXter) {
   for ( i = 0; i < mypswd_arr.length; i++ ) {
     mypswd_str += mypswd_arr[i];
   }
-/*
+
   document.getElementById("newPassword").innerHTML = mypswd_str;
   document.getElementById("generatePassword").disabled = true;
+  document.getElementById("resetPage").disabled = false;
 
   window.performance.mark("mark_end_generatePassword");
+
+/* There are 3 methods. See README for details */
+
   window.performance.measure("measure_generatePassword", "mark_start_generatePassword", "mark_end_generatePassword");
   var timeToGenerate = window.performance.getEntriesByName("measure_generatePassword");
-  /*
-  console.log("Time to generate password: " + timeToGenerate[timeToGenerate.length-1].duration + "ms");
-*/
-  stopTime = window.performance.now();
-  spentTime = stopTime - startTime;
-  console.log(startTime, stopTime, spentTime);
+
+  perfReport = document.getElementById("perfReport");
+  intialContent = perfReport.textContent; //or .innerHTML
+  perfReport.innerHTML = intialContent + " " + " Generator: " + parseInt(timeToGenerate[0].duration) + 'ms';
 }
 
