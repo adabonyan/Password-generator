@@ -32,6 +32,7 @@ span {
 
 button {
   background-color: bisque; /*#e4d091 */
+  color: red;
   border: none;
   border-radius: 8px;
   padding: 10px;

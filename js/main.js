@@ -129,6 +129,7 @@ function generateSpecialXters(){
 
 function generatePassword(pswdlength, specialXter) {
   window.performance.mark("mark_start_generatePassword");   // User Timing API
+  startTime = window.performance.now();
 
   document.getElementById("newPassword").innerHTML = "";
   pswdlength = document.getElementById("pswdlength").value;
@@ -172,13 +173,18 @@ function generatePassword(pswdlength, specialXter) {
   for ( i = 0; i < mypswd_arr.length; i++ ) {
     mypswd_str += mypswd_arr[i];
   }
-
+/*
   document.getElementById("newPassword").innerHTML = mypswd_str;
   document.getElementById("generatePassword").disabled = true;
 
   window.performance.mark("mark_end_generatePassword");
   window.performance.measure("measure_generatePassword", "mark_start_generatePassword", "mark_end_generatePassword");
   var timeToGenerate = window.performance.getEntriesByName("measure_generatePassword");
+  /*
   console.log("Time to generate password: " + timeToGenerate[timeToGenerate.length-1].duration + "ms");
+*/
+  stopTime = window.performance.now();
+  spentTime = stopTime - startTime;
+  console.log(startTime, stopTime, spentTime);
 }
 
