@@ -129,9 +129,14 @@ function generateSpecialXters(){
 
 function generatePassword(pswdlength, specialXter) {
   window.performance.mark("mark_start_generatePassword"); // User Timing API
+  pswdlength = document.getElementById("pswdlength").value;
+
+  if (pswdlength < 4 || pswdlength > 32) {
+    document.getElementById("lengthError").innerHTML = "Error: Choose between 4 and 32";
+    return;
+  }
 
   document.getElementById("newPassword").innerHTML = "";
-  pswdlength = document.getElementById("pswdlength").value;
   specialXter = document.getElementById("specialXter").value;
   mypswd_arr = [];
 

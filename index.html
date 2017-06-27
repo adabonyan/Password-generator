@@ -30,8 +30,8 @@
       <header>
         <h1>Welcome to Password Generator</h1>
         <p class="headerP">This is a free tool to generate password<br>
-        The password will consist of alphanumerics; both lower and upper case alphabets, numbers and special characters. Special character is optional. Password minimum length is 4.<br>
-        Just type in the length of the password you require and choose if you want special character.
+        The password will consist of lower and upper case alphabets, numbers and special characters. Special character is optional. Password minimum length is 4.<br>
+        Just type password length and select Yes/No for special character.
         </p>
       </header>
 
@@ -44,6 +44,7 @@
           <p>Enter password length
             <input type="number" id="pswdlength" value=4 min="4" max="32">
             </input>
+            <span id="lengthError" style="color: red; font-size: 1em;"></span>
           </p>
 
           <p>Do you want special Characters?
@@ -59,7 +60,7 @@
 
           <p>
             Your new password is: <br>
-            <span id="newPassword" style="font-size: 1.2em; color: red;"></span>
+            <b><span id="newPassword" style="font-size: 1.2em; color: red;"></span></b>
           </p>
 
           <hr>
