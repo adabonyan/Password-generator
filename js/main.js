@@ -1,6 +1,7 @@
 //Password generator
 //"use strict";
 
+//Each of these var will contribute own array to the password array
 var uppercaseLetters = [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' ];
 var lowercaseLetters = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' ];
 var number = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
@@ -10,8 +11,9 @@ function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;  //returns a random number between min and max (both included):
 }
 
-var minlengthofeachInput;
+var minlengthofeachInput;  //lower, upper cases, number & special Xter arrays
 
+//get minimum length of each array
 function minlength(pswdlength, nu) {
   spareLength = pswdlength % nu;
 
@@ -22,7 +24,7 @@ function minlength(pswdlength, nu) {
   }
 }
 
-
+//get actual length for each contributor
 function lengthOfeachInput (pswdlength, specialXter){
   if (specialXter === "Yes"){
     minlength(pswdlength, 4);
@@ -57,11 +59,11 @@ function shuffle(input) {
     return newArray;
 }
 
-//a = 0; z = 25
+//a index = 0; z index = 25
 function generateLowercaseLetters(){
   getNumber = "";
   lowercaseInput = [];
-  x = 25;  //number of alphabets, 26 - 1
+  x = 25;
 
   for (i = 0; i < lowercaseLetters_length; i++) {
     getNumber = getRndInteger(0, x);
@@ -77,11 +79,11 @@ function generateLowercaseLetters(){
   return lowercaseInput;
 }
 
-//A = 0; Z = 25
+//A index = 0; Z index = 25
 function generateUppercaseLetters(){
   getNumber = "";
   uppercaseInput = [];
-  x = 25;  //number of alphabets, 26 - 1
+  x = 25;
 
   for (i = 0; i < uppercaseLetters_length; i++) {
     getNumber = getRndInteger(0, x);
@@ -165,14 +167,11 @@ function generatePassword(pswdlength, specialXter) {
     }
   }
 
-  //mypswd_arr = shuffle(mypswd_arr);
-
-  /* try this later see effect on performance */
   for ( i = 0; i < 4; i++ ) {
     mypswd_arr = shuffle(mypswd_arr);
   }
 
-  //Turn mypswd_arr to a string, mypswd_str
+  //Turn mypswd_arr to a string.
   mypswd_str = "";
   for ( i = 0; i < mypswd_arr.length; i++ ) {
     mypswd_str += mypswd_arr[i];
@@ -185,7 +184,6 @@ function generatePassword(pswdlength, specialXter) {
   window.performance.mark("mark_end_generatePassword");
 
 /* There are 3 methods. See README for details */
-
   window.performance.measure("measure_generatePassword", "mark_start_generatePassword", "mark_end_generatePassword");
   var timeToGenerate = window.performance.getEntriesByName("measure_generatePassword");
 
